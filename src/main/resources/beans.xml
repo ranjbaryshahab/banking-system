@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--  ***************  date format bean  **************** -->
+    <bean id="dateFormat" class="java.text.SimpleDateFormat">
+        <constructor-arg value="yyyy-MM-dd"/>
+    </bean>
+    <!-- ********  -->
+
+    <!--  ***************  pirozi branch  **************** -->
+    <bean id="piroziBranch" class="ir.maktab.java32.project.spring.bankingsystem.models.Branch">
+        <property name="name" value="pirozi"/>
+    </bean>
+    <!-- ********  -->
+
+    <!--    ******************** pirozi branch boss ********************    -->
+    <bean id="piroziBranchBoss" class="ir.maktab.java32.project.spring.bankingsystem.models.Boss">
+        <property name="branch" ref="piroziBranch"/>
+        <property name="person" ref="piroziBranchPersonalInfoBoss"/>
+    </bean>
+
+    <bean id="piroziBranchPersonalInfoBoss" class="ir.maktab.java32.project.spring.bankingsystem.models.Person">
+        <property name="firstName" value="shahab"/>
+        <property name="lastName" value="ranjbary"/>
+        <property name="fathersName" value="mohammad"/>
+        <property name="nationalCode" value="001900"/>
+        <property name="dateOfBirth">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="1996-04-23"/>
+            </bean>
+        </property>
+        <property name="roles">
+            <set>
+                <ref bean="piroziBranchBoss"/>
+            </set>
+        </property>
+        <property name="contactInfo" ref="piroziBranchContactInfoBoss"/>
+    </bean>
+
+    <bean id="piroziBranchBossAdress" class="ir.maktab.java32.project.spring.bankingsystem.models.Address">
+        <property name="street" value="pirozi"/>
+        <property name="alley" value="400"/>
+        <property name="houseNumber" value="10"/>
+        <property name="postalCode" value="098"/>
+    </bean>
+
+    <bean id="piroziBranchContactInfoBoss" class="ir.maktab.java32.project.spring.bankingsystem.models.ContactInfo">
+        <property name="phoneNumber" value="12345"/>
+        <property name="cellPhoneNumber" value="09122351"/>
+        <property name="person" ref="piroziBranchPersonalInfoBoss"/>
+        <property name="address" ref="piroziBranchBossAdress"/>
+    </bean>
+    <!--    ****************************************    -->
+
+
+    <!--    ******************** pirozi branch employee 1 ********************    -->
+    <bean id="piroziBranchEmployee1" class="ir.maktab.java32.project.spring.bankingsystem.models.Employee">
+        <property name="branch" ref="piroziBranch"/>
+        <property name="person" ref="piroziBranchPersonalInfoEmployee1"/>
+    </bean>
+
+    <bean id="piroziBranchPersonalInfoEmployee1" class="ir.maktab.java32.project.spring.bankingsystem.models.Person">
+        <property name="firstName" value="reza"/>
+        <property name="lastName" value="dehghani"/>
+        <property name="fathersName" value="ali"/>
+        <property name="nationalCode" value="001580"/>
+        <property name="dateOfBirth">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="1995-06-19"/>
+            </bean>
+        </property>
+        <property name="roles">
+            <set>
+                <ref bean="piroziBranchEmployee1"/>
+            </set>
+        </property>
+        <property name="contactInfo" ref="piroziBranchContactInfoEmployee1"/>
+    </bean>
+
+    <bean id="piroziBranchAddressEmployee1" class="ir.maktab.java32.project.spring.bankingsystem.models.Address">
+        <property name="street" value="pirozi"/>
+        <property name="alley" value="meghdad"/>
+        <property name="houseNumber" value="18"/>
+        <property name="postalCode" value="087"/>
+    </bean>
+
+    <bean id="piroziBranchContactInfoEmployee1"
+          class="ir.maktab.java32.project.spring.bankingsystem.models.ContactInfo">
+        <property name="phoneNumber" value="151520"/>
+        <property name="cellPhoneNumber" value="0941212"/>
+        <property name="person" ref="piroziBranchPersonalInfoEmployee1"/>
+        <property name="address" ref="piroziBranchAddressEmployee1"/>
+    </bean>
+    <!--    ****************************************    -->
+
+
+    <!--    ******************** pirozi branch employee 2 ********************    -->
+    <bean id="piroziBranchEmployee2" class="ir.maktab.java32.project.spring.bankingsystem.models.Employee">
+        <property name="branch" ref="piroziBranch"/>
+        <property name="person" ref="piroziBranchPersonalInfoEmployee2"/>
+    </bean>
+
+    <bean id="piroziBranchPersonalInfoEmployee2" class="ir.maktab.java32.project.spring.bankingsystem.models.Person">
+        <property name="firstName" value="sepehr"/>
+        <property name="lastName" value="ranjbary"/>
+        <property name="fathersName" value="mohammad"/>
+        <property name="nationalCode" value="002512"/>
+        <property name="dateOfBirth">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="2006-10-21"/>
+            </bean>
+        </property>
+        <property name="roles">
+            <set>
+                <ref bean="piroziBranchEmployee2"/>
+            </set>
+        </property>
+        <property name="contactInfo" ref="piroziBranchContactInfoEmployee2"/>
+    </bean>
+
+    <bean id="piroziBranchAddressEmployee2" class="ir.maktab.java32.project.spring.bankingsystem.models.Address">
+        <property name="street" value="pirozi"/>
+        <property name="alley" value="parastar"/>
+        <property name="houseNumber" value="110"/>
+        <property name="postalCode" value="085"/>
+    </bean>
+
+    <bean id="piroziBranchContactInfoEmployee2"
+          class="ir.maktab.java32.project.spring.bankingsystem.models.ContactInfo">
+        <property name="phoneNumber" value="653255"/>
+        <property name="cellPhoneNumber" value="05662633"/>
+        <property name="person" ref="piroziBranchPersonalInfoEmployee2"/>
+        <property name="address" ref="piroziBranchAddressEmployee2"/>
+    </bean>
+    <!--    ****************************************    -->
+
+
+    <!--    ******************** pirozi branch customer 1 ********************    -->
+    <bean id="piroziBranchCustomer1" class="ir.maktab.java32.project.spring.bankingsystem.models.Customer">
+        <property name="accounts">
+            <set>
+                <ref bean="piroziBranchAccount1Customer1"/>
+                <ref bean="piroziBranchAccount2Customer1"/>
+            </set>
+        </property>
+        <property name="person" ref="piroziBranchPersonalInfoCustomer1"/>
+    </bean>
+
+    <bean id="piroziBranchPersonalInfoCustomer1" class="ir.maktab.java32.project.spring.bankingsystem.models.Person">
+        <property name="firstName" value="mohammad"/>
+        <property name="lastName" value="faalian"/>
+        <property name="fathersName" value="ali"/>
+        <property name="nationalCode" value="01458420"/>
+        <property name="dateOfBirth">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="1990-05-04"/>
+            </bean>
+        </property>
+        <property name="roles">
+            <set>
+                <ref bean="piroziBranchCustomer1"/>
+            </set>
+        </property>
+        <property name="contactInfo" ref="piroziBranchContactInfoCustomer1"/>
+    </bean>
+
+    <bean id="piroziBranchAddressCustomer1" class="ir.maktab.java32.project.spring.bankingsystem.models.Address">
+        <property name="street" value="azadi"/>
+        <property name="alley" value="jeyhon"/>
+        <property name="houseNumber" value="14"/>
+        <property name="postalCode" value="054"/>
+    </bean>
+
+    <bean id="piroziBranchContactInfoCustomer1"
+          class="ir.maktab.java32.project.spring.bankingsystem.models.ContactInfo">
+        <property name="phoneNumber" value="12524551"/>
+        <property name="cellPhoneNumber" value="01545045"/>
+        <property name="person" ref="piroziBranchPersonalInfoCustomer1"/>
+        <property name="address" ref="piroziBranchAddressCustomer1"/>
+    </bean>
+
+
+    <bean id="piroziBranchAccount1Customer1" class="ir.maktab.java32.project.spring.bankingsystem.models.Account">
+        <property name="branch" ref="piroziBranch"/>
+        <property name="balance" value="10000"/>
+        <property name="owner" ref="piroziBranchCustomer1"/>
+        <property name="card" ref="piroziBranchCardAccount1Customer1"/>
+    </bean>
+
+
+    <bean id="piroziBranchCardAccount1Customer1" class="ir.maktab.java32.project.spring.bankingsystem.models.Card">
+        <property name="account" ref="piroziBranchAccount1Customer1"/>
+        <property name="isActive" value="true"/>
+        <property name="cardPasswordInfo" ref="piroziBranchCardPasswordInfoAccount1Customer1"/>
+    </bean>
+
+    <bean id="piroziBranchCardPasswordInfoAccount1Customer1"
+          class="ir.maktab.java32.project.spring.bankingsystem.models.CardPasswordInfo">
+        <property name="cvv2" value="105"/>
+        <property name="expireDate">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="2025-05-01"/>
+            </bean>
+        </property>
+        <property name="password" value="1115"/>
+        <property name="secondPassword" value="1471"/>
+    </bean>
+
+
+    <bean id="piroziBranchAccount2Customer1" class="ir.maktab.java32.project.spring.bankingsystem.models.Account">
+        <property name="branch" ref="piroziBranch"/>
+        <property name="balance" value="1500000"/>
+        <property name="owner" ref="piroziBranchCustomer1"/>
+        <property name="card" ref="piroziBranchCardAccount2Customer1"/>
+    </bean>
+
+
+    <bean id="piroziBranchCardAccount2Customer1" class="ir.maktab.java32.project.spring.bankingsystem.models.Card">
+        <property name="account" ref="piroziBranchAccount2Customer1"/>
+        <property name="isActive" value="true"/>
+        <property name="cardPasswordInfo" ref="piroziBranchCardPasswordInfoAccount2Customer1"/>
+    </bean>
+
+    <bean id="piroziBranchCardPasswordInfoAccount2Customer1"
+          class="ir.maktab.java32.project.spring.bankingsystem.models.CardPasswordInfo">
+        <property name="cvv2" value="402"/>
+        <property name="expireDate">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="2023-02-05"/>
+            </bean>
+        </property>
+        <property name="password" value="2558"/>
+        <property name="secondPassword" value="1520"/>
+    </bean>
+
+    <!--    ****************************************    -->
+
+
+    <!--    ******************** pirozi branch customer 2 ********************    -->
+    <bean id="piroziBranchCustomer2" class="ir.maktab.java32.project.spring.bankingsystem.models.Customer">
+        <property name="accounts">
+            <set>
+                <ref bean="piroziBranchAccount1Customer2"/>
+                <ref bean="piroziBranchAccount2Customer2"/>
+            </set>
+        </property>
+        <property name="person" ref="piroziBranchPersonalInfoCustomer2"/>
+    </bean>
+
+    <bean id="piroziBranchPersonalInfoCustomer2" class="ir.maktab.java32.project.spring.bankingsystem.models.Person">
+        <property name="firstName" value="shervin"/>
+        <property name="lastName" value="zadsoror"/>
+        <property name="fathersName" value="ali"/>
+        <property name="nationalCode" value="0154120"/>
+        <property name="dateOfBirth">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="1990-02-01"/>
+            </bean>
+        </property>
+        <property name="roles">
+            <set>
+                <ref bean="piroziBranchCustomer2"/>
+            </set>
+        </property>
+        <property name="contactInfo" ref="piroziBranchContactInfoCustomer2"/>
+    </bean>
+
+    <bean id="piroziBranchAddressCustomer2" class="ir.maktab.java32.project.spring.bankingsystem.models.Address">
+        <property name="street" value="azadi"/>
+        <property name="alley" value="teymori"/>
+        <property name="houseNumber" value="18"/>
+        <property name="postalCode" value="023"/>
+    </bean>
+
+    <bean id="piroziBranchContactInfoCustomer2"
+          class="ir.maktab.java32.project.spring.bankingsystem.models.ContactInfo">
+        <property name="phoneNumber" value="12551"/>
+        <property name="cellPhoneNumber" value="045045"/>
+        <property name="person" ref="piroziBranchPersonalInfoCustomer2"/>
+        <property name="address" ref="piroziBranchAddressCustomer2"/>
+    </bean>
+
+
+    <bean id="piroziBranchAccount1Customer2" class="ir.maktab.java32.project.spring.bankingsystem.models.Account">
+        <property name="branch" ref="piroziBranch"/>
+        <property name="balance" value="170000"/>
+        <property name="owner" ref="piroziBranchCustomer2"/>
+        <property name="card" ref="piroziBranchCardAccount1Customer2"/>
+    </bean>
+
+
+    <bean id="piroziBranchCardAccount1Customer2" class="ir.maktab.java32.project.spring.bankingsystem.models.Card">
+        <property name="account" ref="piroziBranchAccount1Customer2"/>
+        <property name="isActive" value="true"/>
+        <property name="cardPasswordInfo" ref="piroziBranchCardPasswordInfoAccount1Customer2"/>
+    </bean>
+
+    <bean id="piroziBranchCardPasswordInfoAccount1Customer2"
+          class="ir.maktab.java32.project.spring.bankingsystem.models.CardPasswordInfo">
+        <property name="cvv2" value="205"/>
+        <property name="expireDate">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="2023-05-01"/>
+            </bean>
+        </property>
+        <property name="password" value="1115"/>
+        <property name="secondPassword" value="1471"/>
+    </bean>
+
+
+    <bean id="piroziBranchAccount2Customer2" class="ir.maktab.java32.project.spring.bankingsystem.models.Account">
+        <property name="branch" ref="piroziBranch"/>
+        <property name="balance" value="75000000"/>
+        <property name="owner" ref="piroziBranchCustomer2"/>
+        <property name="card" ref="piroziBranchCardAccount2Customer2"/>
+    </bean>
+
+
+    <bean id="piroziBranchCardAccount2Customer2" class="ir.maktab.java32.project.spring.bankingsystem.models.Card">
+        <property name="account" ref="piroziBranchAccount2Customer2"/>
+        <property name="isActive" value="true"/>
+        <property name="cardPasswordInfo" ref="piroziBranchCardPasswordInfoAccount2Customer2"/>
+    </bean>
+
+    <bean id="piroziBranchCardPasswordInfoAccount2Customer2"
+          class="ir.maktab.java32.project.spring.bankingsystem.models.CardPasswordInfo">
+        <property name="cvv2" value="100"/>
+        <property name="expireDate">
+            <bean factory-bean="dateFormat" factory-method="parse">
+                <constructor-arg value="2022-07-30"/>
+            </bean>
+        </property>
+        <property name="password" value="2100"/>
+        <property name="secondPassword" value="1200"/>
+    </bean>
+
+    <!--    ****************************************    -->
+</beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.username">admin</property>
+        <property name="hibernate.connection.password">Admin@1234</property>
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost/BankingSystemDB?createDatabaseIfNotExist=true
+        </property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
+        <property name="show_sql">false</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Mapping -->
+        <mapping class="ir.maktab.java32.project.spring.bankingsystem.models.Person"/>
+        <mapping class="ir.maktab.java32.project.spring.bankingsystem.models.Role"/>
+        <mapping class="ir.maktab.java32.project.spring.bankingsystem.models.Card"/>
+        <mapping class="ir.maktab.java32.project.spring.bankingsystem.models.Account"/>
+        <mapping class="ir.maktab.java32.project.spring.bankingsystem.models.Customer"/>
+        <mapping class="ir.maktab.java32.project.spring.bankingsystem.models.Branch"/>
+        <mapping class="ir.maktab.java32.project.spring.bankingsystem.models.Transaction"/>
+        <mapping class="ir.maktab.java32.project.spring.bankingsystem.models.Boss"/>
+        <mapping class="ir.maktab.java32.project.spring.bankingsystem.models.Employee"/>
+        <mapping class="ir.maktab.java32.project.spring.bankingsystem.models.ContactInfo"/>
+    </session-factory>
+</hibernate-configuration>
